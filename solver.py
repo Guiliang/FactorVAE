@@ -86,6 +86,7 @@ class Solver(object):
         self.output_save = args.output_save
         mkdirs(self.output_dir)
 
+
     def train(self):
         self.net_mode(train=True)
 
