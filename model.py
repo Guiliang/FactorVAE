@@ -197,6 +197,8 @@ class FactorVAE3(nn.Module):
             initializer = kaiming_init
         elif mode == 'normal':
             initializer = normal_init
+        else:
+            raise ValueError('unknown initializer mode {0}'.format(mode))
 
         for block in self._modules:
             for m in self._modules[block]:
@@ -240,3 +242,8 @@ def normal_init(m):
         m.weight.data.fill_(1)
         if m.bias is not None:
             m.bias.data.fill_(0)
+
+
+if __name__ == "__main__":
+    fave1 = FactorVAE1()
+    fave2 = FactorVAE2()
